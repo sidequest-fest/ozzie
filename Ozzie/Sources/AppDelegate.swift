@@ -33,11 +33,11 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     // MARK: - Menu Bar Setup
 
     private func setupMenuBar() {
-        statusItem = NSStatusBar.system.statusItem(withLength: NSStatusItem.squareLength)
+        // Wider status item — the extra black space blends with the MacBook notch
+        statusItem = NSStatusBar.system.statusItem(withLength: WizardIcon.statusItemWidth)
 
         if let button = statusItem.button {
-            button.image = WizardIcon.createMenuBarIcon()
-            button.image?.size = NSSize(width: 18, height: 18)
+            button.image = WizardIcon.createMenuBarIconMultiRes()
             button.action = #selector(togglePopover)
             button.target = self
             button.toolTip = "Ozzie — Your Task Wizard"
